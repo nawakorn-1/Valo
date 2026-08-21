@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Valo - Express on Vercel</title>
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <!-- Header / Navbar -->
+      <header class="navbar">
+        <a href="/" class="nav-brand">
+          <img src="/logo.png" alt="Logo" width="28" height="28" style="border-radius: 4px;" />
+          <span>VALO</span>
+        </a>
+        <nav class="nav-links">
+          <a href="/" class="active">หน้าแรก</a>
+          <a href="/about">เกี่ยวกับเรา</a>
+          <a href="/api-data" target="_blank">API Data</a>
+          <a href="/healthz" target="_blank">สถานะระบบ</a>
+          <a href="https://github.com/nawakorn-1/Valo" target="_blank" class="btn btn-secondary" style="padding: 0.45rem 1rem;">GitHub</a>
+        </nav>
+      </header>
+
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="badge">
+          🚀 Powered by Express.js & Vercel Serverless
+        </div>
+        <h1>
+          ยินดีต้อนรับสู่ <span class="gradient-text">Valo Web App</span>
+        </h1>
+        <p>
+          เว็บแอปพลิเคชันความเร็วสูง พัฒนาด้วย Express.js และ TypeScript บน Vercel พร้อมระบบ Serverless Functions และ RESTful API
+        </p>
+        <div class="hero-actions">
+          <a href="#api-tester" class="btn btn-primary">ทดสอบ API สด ✨</a>
+          <a href="/about" class="btn btn-secondary">ดูข้อมูลระบบ</a>
+        </div>
+      </section>
+
+      <!-- Features Section -->
+      <section class="features-section">
+        <h2 class="section-title">จุดเด่นของระบบ</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <span class="card-icon">⚡</span>
+            <h3>Serverless Execution</h3>
+            <p>ทำงานบน Vercel Fluid Compute ขยายขนาดอัตโนมัติ ตอบสนองรวดเร็วระดับมิลลิวินาที</p>
+          </div>
+          <div class="feature-card">
+            <span class="card-icon">🛡️</span>
+            <h3>TypeScript Ready</h3>
+            <p>เขียนด้วย TypeScript ทั้งระบบ Type-Safe ปลอดภัย และดูแลรักษาง่าย</p>
+          </div>
+          <div class="feature-card">
+            <span class="card-icon">🔄</span>
+            <h3>CI/CD อัตโนมัติ</h3>
+            <p>เชื่อมต่อกับ GitHub เมื่อกด Push โค้ด Vercel จะ Build และ Deploy ให้ทันที</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Live API Tester Section -->
+      <section class="api-demo-section" id="api-tester">
+        <div class="api-box">
+          <div class="api-box-header">
+            <div>
+              <h3>🧪 ทดสอบ REST API แบบ Real-Time</h3>
+              <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 0.25rem;">
+                ลองกดเรียกข้อมูลจาก Express Endpoint ที่รันอยู่บน Vercel
+              </p>
+            </div>
+            <div class="api-buttons">
+              <button class="btn btn-primary" onclick="testEndpoint('/api-data')">GET /api-data</button>
+              <button class="btn btn-secondary" onclick="testEndpoint('/healthz')">GET /healthz</button>
+            </div>
+          </div>
+          <pre id="api-output" class="api-output">// กดปุ่มด้านบนเพื่อทดสอบดึงข้อมูล API...</pre>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer>
+        <p>© 2026 Valo Project — Deployed with ❤️ on Vercel</p>
+      </footer>
+    </div>
+
+    <!-- Client-side script for interactive API demo -->
+    <script>
+      async function testEndpoint(endpoint) {
+        const output = document.getElementById('api-output');
+        output.textContent = `กำลังโหลดข้อมูลจาก ${endpoint}...`;
+        try {
+          const res = await fetch(endpoint);
+          const data = await res.json();
+          output.textContent = JSON.stringify(data, null, 2);
+        } catch (err) {
+          output.textContent = `Error: ${err.message}`;
+        }
+      }
+    </script>
+  </body>
+</html>

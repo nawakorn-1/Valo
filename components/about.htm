@@ -1,13 +1,53 @@
-<html>
+<!doctype html>
+<html lang="th">
   <head>
-    <meta charset="utf-8"/>
-    <title>Express on Vercel</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About - Valo</title>
     <link rel="stylesheet" href="/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
   </head>
-	<body>
-    <div>
-      <h1>About</h1>
-      <p>This is a simple web app demonstrating how to use Express.js with Vercel. This app shows how to create different routes, upload data to a database, and fetch data from a database.</p>
+  <body>
+    <div class="container">
+      <header class="navbar">
+        <a href="/" class="nav-brand">
+          <img src="/logo.png" alt="Logo" width="28" height="28" style="border-radius: 4px;" />
+          <span>VALO</span>
+        </a>
+        <nav class="nav-links">
+          <a href="/">หน้าแรก</a>
+          <a href="/about" class="active">เกี่ยวกับเรา</a>
+          <a href="/api-data" target="_blank">API Data</a>
+          <a href="/healthz" target="_blank">สถานะระบบ</a>
+          <a href="https://github.com/nawakorn-1/Valo" target="_blank" class="btn btn-secondary" style="padding: 0.45rem 1rem;">GitHub</a>
+        </nav>
+      </header>
+
+      <section class="hero" style="padding: 4rem 0 2rem;">
+        <h1>เกี่ยวกับ <span class="gradient-text">Valo Project</span></h1>
+        <p>
+          โปรเจกต์นี้สาธิตการทำงานร่วมกันระหว่าง Express.js, TypeScript และ Vercel Serverless Hosting
+        </p>
+      </section>
+
+      <div class="api-box" style="margin-top: 1rem;">
+        <h3 style="margin-bottom: 1rem;">🛠️ สถาปัตยกรรมของระบบ (Architecture)</h3>
+        <ul style="color: var(--text-muted); padding-left: 1.5rem; line-height: 2;">
+          <li><strong>Backend Framework:</strong> Express.js (Node.js)</li>
+          <li><strong>Language:</strong> TypeScript (Type-Safe)</li>
+          <li><strong>Hosting / Cloud:</strong> Vercel Serverless Functions</li>
+          <li><strong>Source Control:</strong> Git & GitHub (Auto Deploy via CI/CD)</li>
+        </ul>
+        <div style="margin-top: 2rem;">
+          <a href="/" class="btn btn-primary">← กลับสู่หน้าแรก</a>
+        </div>
+      </div>
+
+      <footer>
+        <p>© 2026 Valo Project — Deployed with ❤️ on Vercel</p>
+      </footer>
     </div>
   </body>
 </html>
